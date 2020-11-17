@@ -8,18 +8,23 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Intro Vue</title>
   </head>
-  <header>
+  <body>
+   <header>
       <div class="wrapper">
-        <h2>Vue To do List</h2>
+        <h2>Vue Skills List</h2>
       </div>
-  </header>
-  <main>
+   </header>
+   <main>
     <div class="main_wrapper">
-        <div class="todo_box">
-            <li v-for="skill as skills"></li>
-            <input type="text" placeholder="insert your skills">
+        <div id="app" class="todo_box">
+            <li v-for="(skill, index) in skills">
+                {{skill}}<button @click="deleteSkill(index)"><i class="fas fa-trash"></i></button>
+             </li>
+            <input id="input" type="text" placeholder="insert your skills" v-model="newSkill">
+            <button value="submit" @click="addSkill">Add Skill</button>
         </div>    
     </div>
-  </main>
+   </main>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/main.js"></script>
   </body>

@@ -1,25 +1,35 @@
 var app = new Vue ({
+
   el: '#app',
-  data: {
-    newSkill: "",
-    skills: [
-      {
-        skill: "Procedural PHP"
+
+    data: {
+
+        newSkill:'',
+
+        skills: [
+          
+          'Procedural PHP', 
+          'Laravel',
+          'Node.js',
+          'Javascript',
+          'Vue'
+
+        ]
+
+    },
+    methods: {
+
+      addSkill() {
+
+        this.skills.push(this.newSkill);
+
+        this.newSkill = '';
+
       },
-      {
-        skill: "Laravel"
-      },
-      {
-        skill: "Node.js"
+      deleteSkill (index) {
+
+        this.skills.splice(index, 1);
       }
-    ]
-  },
-  methods: {
-    createSkills: function () {
-      var newSkill = {
-        skill: this.newSkill
-      }
-      this.skills.push(newSkill);
-    }
-  }
-}); 
+
+    },
+});
